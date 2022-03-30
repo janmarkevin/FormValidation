@@ -1,0 +1,44 @@
+.form {
+  max-width: 50%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.597);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 5px #000;
+
+  &__control {
+    width: 50%;
+    margin: 10px auto;
+  }
+
+  &__control-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  input[type=email],
+  input[type=password] {
+    padding: 5px 20px 5px 5px;
+    position: relative;
+    z-index: 1;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+
+  #text,
+  #textPassword {
+    display: block;
+    font-size: 11px;
+    width: 196px;
+    margin: 5px 0 0 auto;
+  }
+
+  &__terms {
+    text-align: center;
+    margin: 0 0 25px;
+  }
+}
