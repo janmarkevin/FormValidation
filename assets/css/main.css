@@ -9,20 +9,13 @@
 }
 
 .form__control {
-  width: 50%;
+  width: 60%;
   margin: 10px auto;
 }
 
 .form__control-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
 }
 
 .form input[type=email],
@@ -30,11 +23,18 @@
   padding: 5px 20px 5px 5px;
   position: relative;
   z-index: 1;
+  border: 1px solid #000;
 }
 
 .form button {
   display: block;
   margin: 0 auto;
+}
+
+#male,
+#female,
+#terms {
+  cursor: pointer;
 }
 
 .form #text,
@@ -48,6 +48,19 @@
 .form__terms {
   text-align: center;
   margin: 0 0 25px;
+}
+
+.form__right {
+  width: 196px;
+}
+
+.form__gender {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.form__gender:last-of-type {
+  margin: 0;
 }
 
 .modal {
@@ -70,12 +83,21 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  max-width: 290px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  font-size: 40px;
+  line-height: 0.4;
 }
 
 .close:hover,
 .close:focus {
   color: #000;
   text-decoration: none;
-  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

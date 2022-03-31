@@ -2,7 +2,7 @@ function EmailValidation() {
   let email = document.getElementById('email').value
   let email1 = document.getElementById('email')
   let text = document.getElementById('text')
-  let patternEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+  let patternEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 
   if (email.match(patternEmail)) {
     email1.classList.add("valid")
@@ -32,7 +32,7 @@ function PasswordValidation() {
   let password = document.getElementById('password').value
   let password1 = document.getElementById('password')
   let textPassword = document.getElementById('textPassword')
-  let patternPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+  let patternPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/
 
   if (password.match(patternPassword)) {
     password1.classList.add("valid")
@@ -61,7 +61,9 @@ function PasswordValidation() {
 
 function validate() {
   let email = document.getElementById('email').value
+  let patternEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   let password = document.getElementById('password').value
+  let patternPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/
 
   let female = document.getElementById('female')
   let male = document.getElementById('male')
@@ -70,35 +72,32 @@ function validate() {
   const terms = document.getElementById('terms')
   const btn = document.getElementById('register')
 
+  const span = document.getElementsByClassName("close")[0];
+  const modal = document.getElementById('success')
+
   if (female.checked) {
     gender_result = female.value
   } else if (male.checked) {
     gender_result = male.value
   }
 
-  if (email != "" && password != "" && terms.checked === true && gender_result != '') {
+  if (email.match(patternEmail) && password.match(patternPassword) && terms.checked === true && gender_result != '') {
     btn.removeAttribute('disabled')
-  }
-}
+    btn.style.cursor = "pointer"
 
-function redirect() {
-  window.location.href = "http://www.google.com";
-}
+    btn.onclick = function() {
+      modal.style.display = "block"
+    }
+    span.onclick = function() {
+      modal.style.display = "none"
+    }
 
-const btn = document.getElementById('register')
-const span = document.getElementsByClassName("close")[0];
-const modal = document.getElementById('success')
-
-btn.onclick = function() {
-  modal.style.display = "block"
-}
-
-span.onclick = function() {
-  modal.style.display = "none"
-}
-
-window.onclick = function(event) {
-  if (event.target === modal) {
-    modal.style.display = 'none'
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none'
+      }
+    }
+  } else {
+    btn.setAttribute('disabled', 'disabled')
   }
 }
