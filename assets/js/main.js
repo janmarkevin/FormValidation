@@ -63,12 +63,42 @@ function validate() {
   let email = document.getElementById('email').value
   let password = document.getElementById('password').value
 
-  let gender = document.getElementById('gender').checked
+  let female = document.getElementById('female')
+  let male = document.getElementById('male')
+  let gender_result = ''
 
   const terms = document.getElementById('terms')
   const btn = document.getElementById('register')
 
-  if (email != "" && password != "" && terms.checked === true && gender != "") {
+  if (female.checked) {
+    gender_result = female.value
+  } else if (male.checked) {
+    gender_result = male.value
+  }
+
+  if (email != "" && password != "" && terms.checked === true && gender_result != '') {
     btn.removeAttribute('disabled')
+  }
+}
+
+function redirect() {
+  window.location.href = "http://www.google.com";
+}
+
+const btn = document.getElementById('register')
+const span = document.getElementsByClassName("close")[0];
+const modal = document.getElementById('success')
+
+btn.onclick = function() {
+  modal.style.display = "block"
+}
+
+span.onclick = function() {
+  modal.style.display = "none"
+}
+
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = 'none'
   }
 }

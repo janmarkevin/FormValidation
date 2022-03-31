@@ -47,11 +47,21 @@
             <input type="checkbox" name="terms" value="accept" id="terms" required>
             <label for="terms">Accept terms and conditions</label>
           </div>
-          <button type="submit" id="register" disabled="disabled">Register</button>
+          <button id="register" type="button" disabled="disabled">Register</button>
         </div>
       </div>
     </div>
   </form>
+
+  <!-- SuccessModal -->
+  <div id="success" class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__content">
+        <span class="close">&times;</span>
+        <h2>Successfuly registered</h2>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>
