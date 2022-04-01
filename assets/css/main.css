@@ -10,25 +10,30 @@
 
 .form__control {
   width: 60%;
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
 .form__control-group {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .form input[type=email],
 .form input[type=password] {
-  padding: 5px 20px 5px 5px;
+  padding: 5px 10px 5px 3px;
   position: relative;
   z-index: 1;
-  border: 1px solid #000;
+  outline: none;
 }
 
 .form button {
   display: block;
   margin: 0 auto;
+  background: transparent;
+  border: none;
+  padding: 5px 10px;
+  box-shadow: 0 0 5px #000;
 }
 
 .no-cursor {
@@ -43,7 +48,7 @@
   display: block;
 }
 
-.no-show {
+.hidden {
   display: none;
 }
 
@@ -53,12 +58,35 @@
   cursor: pointer;
 }
 
-.form #text,
-.form #textPassword {
+.form #errorEmail,
+.form #errorPassword {
   display: block;
   font-size: 11px;
   width: 196px;
   margin: 5px 0 0 auto;
+}
+
+.success {
+  color: #00ff00;
+}
+
+.error {
+  color: #ff0000;
+}
+
+.border-success {
+  border: none;
+  border-bottom: 2px solid #00ff00;
+}
+
+.border-error {
+  border: none;
+  border-bottom: 2px solid #ff0000;
+}
+
+.neutral {
+  border: none;
+  border-bottom: 2px solid #000;
 }
 
 .form__terms {
@@ -115,4 +143,3 @@
   color: #000;
   text-decoration: none;
 }
-/*# sourceMappingURL=main.css.map */

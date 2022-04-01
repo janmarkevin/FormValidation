@@ -1,12 +1,18 @@
 const email = document.getElementById('email')
 const password = document.getElementById('password')
 const validateForm = document.getElementById('form')
+const submitButton = document.getElementById('registerBtn')
+const closeTab = document.getElementsByClassName("close")[0];
+const modal = document.getElementById('success')
+modal.classList.add('hidden')
+email.classList.add('neutral')
+password.classList.add('neutral')
 
 //Selecting Email and validating Live, if the inputted email are valid or not 
 email.addEventListener('change', () => {
   let emailValue = email.value
   const patternEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
-  const textEmail = document.getElementById('text')
+  const errorEmail = document.getElementById('errorEmail')
 
   email.onblur = () => {
     emailValue = emailValue.replace(/\s+$/, '') 
@@ -15,63 +21,68 @@ email.addEventListener('change', () => {
   if (emailValue.match(patternEmail)) {
     email.classList.add("valid")
     email.classList.remove('invalid')
-    textEmail.innerHTML = "Your Email address is Valid!"
-    textEmail.style.color = "#00ff00"
-    email.style.border = "1px solid #000"
+    errorEmail.innerHTML = "Your Email address is Valid!"
+    errorEmail.classList.add('success')
+    errorEmail.classList.remove('error')
+    email.classList.add('border-success')
+    email.classList.remove('border-error')
+    email.classList.remove('neutral')
   } else {
     email.classList.remove('valid')
     email.classList.add("invalid")
-    textEmail.innerHTML = "Please Enter Valid Email Address"
-    textEmail.style.color = "#ff0000"
-    email.style.border = "1px solid #ff0000"
-    email.style.outline = "#ff0000"
+    errorEmail.innerHTML = "Please Enter Valid Email Address"
+    errorEmail.classList.add('error')
+    errorEmail.classList.remove('success')
+    email.classList.add('border-error')
+    email.classList.remove('border-success')
+    email.classList.remove('neutral')
   }
 
   if (emailValue === "") {
     email.classList.remove("valid")
     email.classList.remove('invalid')
-    textEmail.innerHTML = ""
-    email.style.border = "1px solid #000"
-    email.style.outline = "#000"
+    email.classList.remove('border-error')
+    email.classList.remove('border-success')
+    email.classList.add('neutral')
+    errorEmail.innerHTML = ""
   }
 })
 
 //Same function as Email
 password.addEventListener('change', () => {
   const passwordValue = password.value
-  const textPassword = document.getElementById('textPassword')
+  const errorPassword = document.getElementById('errorPassword')
   const patternPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/
 
   if (passwordValue.match(patternPassword)) {
     password.classList.add("valid")
     password.classList.remove('invalid')
-    textPassword.innerHTML = "Your password address is Valid!"
-    textPassword.style.color = "#00ff00"
-    password.style.border = "1px solid #000"
-    password.style.outline = "#ff0000"
+    errorPassword.innerHTML = "Your Password address is Valid!"
+    errorPassword.classList.add('success')
+    errorPassword.classList.remove('error')
+    password.classList.add('border-success')
+    password.classList.remove('border-error')
+    password.classList.remove('neutral')
   } else {
     password.classList.remove('valid')
     password.classList.add("invalid")
-    textPassword.innerHTML = "Please Enter Alphanumeric Password and at least One UPPERCASE Letter"
-    textPassword.style.color = "#ff0000"
-    password.style.border = "1px solid #ff0000"
-    password.style.outline = "#ff0000"
+    errorPassword.innerHTML = "Please Enter Alphanumeric Password and at least One UPPERCASE Letter"
+    errorPassword.classList.add('error')
+    errorPassword.classList.remove('success')
+    password.classList.add('border-error')
+    password.classList.remove('border-success')
+    password.classList.remove('neutral')
   }
 
-  if (passwordValue == "") {
+  if (passwordValue === "") {
     password.classList.remove("valid")
     password.classList.remove('invalid')
-    textPassword.innerHTML = ""
-    password.style.border = "1px solid #000"
-    password.style.outline = "#000"
+    password.classList.remove('border-error')
+    password.classList.remove('border-success')
+    password.classList.add('neutral')
+    errorPassword.innerHTML = ""
   }
 })
-
-const submitButton = document.getElementById('register')
-const closeTab = document.getElementsByClassName("close")[0];
-const modal = document.getElementById('success')
-
-modal.classList.add('no-show')
 
 //Validating the Inputted Fields
 validateForm.addEventListener('change', () => {
@@ -99,16 +110,16 @@ validateForm.addEventListener('change', () => {
     submitButton.classList.add('cursor')
 
     submitButton.onclick = () => {
-      modal.classList.remove('no-show')
+      modal.classList.remove('hidden')
     }
 
     closeTab.onclick = () => {
-      modal.classList.add('no-show')
+      modal.classList.add('hidden')
     }
 
     window.onclick = (event) => {
       if (event.target === modal) {
-        modal.classList.add('no-show')
+        modal.classList.add('hidden')
       }
     }
   } else { //if there's an error to the inputted fields the button while not be clickable
