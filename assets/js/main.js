@@ -19,30 +19,21 @@ email.addEventListener('change', () => {
   }
 
   if (emailValue.match(patternEmail)) {
-    email.classList.add("valid")
-    email.classList.remove('invalid')
     errorEmail.innerHTML = "Your Email address is Valid!"
     errorEmail.classList.add('success')
     errorEmail.classList.remove('error')
     email.classList.add('border-success')
-    email.classList.remove('border-error')
-    email.classList.remove('neutral')
+    email.classList.remove('invalid', 'neutral', 'border-error')
   } else {
-    email.classList.remove('valid')
-    email.classList.add("invalid")
+    email.classList.remove('valid', 'border-success', 'neutral')
+    email.classList.add('invalid', 'border-error')
     errorEmail.innerHTML = "Please Enter Valid Email Address"
     errorEmail.classList.add('error')
     errorEmail.classList.remove('success')
-    email.classList.add('border-error')
-    email.classList.remove('border-success')
-    email.classList.remove('neutral')
   }
 
   if (emailValue === "") {
-    email.classList.remove("valid")
-    email.classList.remove('invalid')
-    email.classList.remove('border-error')
-    email.classList.remove('border-success')
+    email.classList.remove('valid', 'invalid', 'border-error', 'border-success')
     email.classList.add('neutral')
     errorEmail.innerHTML = ""
   }
@@ -50,35 +41,26 @@ email.addEventListener('change', () => {
 
 //Same function as Email
 password.addEventListener('change', () => {
-  const passwordValue = password.value
+  let passwordValue = password.value
   const errorPassword = document.getElementById('errorPassword')
   const patternPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/
 
   if (passwordValue.match(patternPassword)) {
-    password.classList.add("valid")
-    password.classList.remove('invalid')
+    password.classList.add('valid', 'border-success')
+    password.classList.remove('invalid', 'border-error', 'neutral')
     errorPassword.innerHTML = "Your Password address is Valid!"
     errorPassword.classList.add('success')
     errorPassword.classList.remove('error')
-    password.classList.add('border-success')
-    password.classList.remove('border-error')
-    password.classList.remove('neutral')
   } else {
-    password.classList.remove('valid')
-    password.classList.add("invalid")
+    password.classList.remove('valid', 'border-success', 'neutral')
+    password.classList.add('invalid', 'border-error')
     errorPassword.innerHTML = "Please Enter Alphanumeric Password and at least One UPPERCASE Letter"
     errorPassword.classList.add('error')
     errorPassword.classList.remove('success')
-    password.classList.add('border-error')
-    password.classList.remove('border-success')
-    password.classList.remove('neutral')
   }
 
   if (passwordValue === "") {
-    password.classList.remove("valid")
-    password.classList.remove('invalid')
-    password.classList.remove('border-error')
-    password.classList.remove('border-success')
+    password.classList.remove('valid', 'invalid', 'border-error', 'border-success')
     password.classList.add('neutral')
     errorPassword.innerHTML = ""
   }
@@ -86,8 +68,8 @@ password.addEventListener('change', () => {
 
 //Validating the Inputted Fields
 validateForm.addEventListener('change', () => {
-  const emailValue = email.value
-  const passwordValue = password.value
+  let emailValue = email.value
+  let passwordValue = password.value
   const patternEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   const patternPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/
 
@@ -107,7 +89,7 @@ validateForm.addEventListener('change', () => {
   //If the inputted fields are valid and all fields are filled, the button will be clickable
   if (emailValue.match(patternEmail) && passwordValue.match(patternPassword) && terms.checked === true && gender_result != '') {
     submitButton.removeAttribute('disabled')
-    submitButton.classList.add('cursor')
+    submitButton.classList.add('cursor', 'blue')
 
     submitButton.onclick = () => {
       modal.classList.remove('hidden')
@@ -124,5 +106,6 @@ validateForm.addEventListener('change', () => {
     }
   } else { //if there's an error to the inputted fields the button while not be clickable
     submitButton.setAttribute('disabled', 'disabled')
+    submitButton.classList.remove('blue', 'cursor')
   }
 })

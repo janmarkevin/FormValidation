@@ -19,7 +19,7 @@
             <input type="email" name="email" id="email" class="form__input" required>
           </div>
         </div>
-        <span id="errorEmail"></span>
+        <span id="errorEmail" class="form__email-error"></span>
       </div>
       <div class="form__control">      
         <div class="form__control-group">
@@ -28,18 +28,18 @@
             <input type="password" name="password" id="password" class="form__input" required>
           </div>
         </div>
-        <span id="errorPassword"></span>
+        <span id="errorPassword" class="form__password-error"></span>
       </div>
       <div class="form__control" id="gender">
         <div class="form__control-group">
           <label for="gender">Gender</label>
           <div class="form__right">
             <div class="form__gender">
-              <input type="radio" name="gender" value="male" id="male">
+              <input type="radio" name="gender" value="male" id="male" class="male">
               <label for="male">Male</label>
             </div>
             <div class="form__gender">
-              <input type="radio" name="gender" value="female" id="female">
+              <input type="radio" name="gender" value="female" id="female" class="female">
               <label for="female">Female</label>
             </div>
           </div>
@@ -48,7 +48,7 @@
       <div class="form__control">
         <div class="form__bottom">
           <div class="form__terms">
-            <input type="checkbox" name="terms" value="accept" id="terms" required>
+            <input type="checkbox" name="terms" value="accept" class="terms" id="terms" required>
             <label for="terms">Accept terms and conditions</label>
           </div>
           <button id="registerBtn" type="button" disabled="disabled">Register</button>

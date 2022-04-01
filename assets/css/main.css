@@ -36,6 +36,15 @@
   box-shadow: 0 0 5px #000;
 }
 
+.blue {
+  background: rgba(74, 74, 255, 0.913)!important;
+  color: #fff!important;
+}
+
+.blue:hover {
+  box-shadow: 0 0 10px #000;
+}
+
 .no-cursor {
   cursor: none;
 }
@@ -52,14 +61,14 @@
   display: none;
 }
 
-#male,
-#female,
-#terms {
+.male,
+.female,
+.terms {
   cursor: pointer;
 }
 
-.form #errorEmail,
-.form #errorPassword {
+.form__email-error,
+.form__password-error {
   display: block;
   font-size: 11px;
   width: 196px;
