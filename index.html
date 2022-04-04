@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/main.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
   <script src="https://kit.fontawesome.com/71a9bdfa63.js" crossorigin="anonymous"></script>
   <!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
   <title>Register</title>
@@ -19,7 +19,7 @@
             <input type="email" name="email" id="email" class="form__input" required>
           </div>
         </div>
-        <span id="errorEmail" class="form__email-error"></span>
+        <span id="errorEmail" class="form__text-error"></span>
       </div>
       <div class="form__control">      
         <div class="form__control-group">
@@ -28,18 +28,18 @@
             <input type="password" name="password" id="password" class="form__input" required>
           </div>
         </div>
-        <span id="errorPassword" class="form__password-error"></span>
+        <span id="errorPassword" class="form__text-error"></span>
       </div>
       <div class="form__control" id="gender">
         <div class="form__control-group">
           <label for="gender">Gender</label>
           <div class="form__right">
             <div class="form__gender">
-              <input type="radio" name="gender" value="male" id="male" class="male">
+              <input type="radio" name="gender" value="male" id="male" class="form__male">
               <label for="male">Male</label>
             </div>
             <div class="form__gender">
-              <input type="radio" name="gender" value="female" id="female" class="female">
+              <input type="radio" name="gender" value="female" id="female" class="form__female">
               <label for="female">Female</label>
             </div>
           </div>
@@ -48,10 +48,10 @@
       <div class="form__control">
         <div class="form__bottom">
           <div class="form__terms">
-            <input type="checkbox" name="terms" value="accept" class="terms" id="terms" required>
+            <input type="checkbox" name="terms" value="accept" class="form__terms" id="terms" required>
             <label for="terms">Accept terms and conditions</label>
           </div>
-          <button id="registerBtn" type="button" disabled="disabled">Register</button>
+          <button id="registerBtn" type="button" disabled="disabled" class="form__btn">Register</button>
         </div>
       </div>
     </div>

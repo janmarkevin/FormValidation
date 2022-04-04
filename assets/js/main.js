@@ -20,16 +20,16 @@ email.addEventListener('change', () => {
 
   if (emailValue.match(patternEmail)) {
     errorEmail.innerHTML = "Your Email address is Valid!"
-    errorEmail.classList.add('success')
-    errorEmail.classList.remove('error')
-    email.classList.add('border-success')
-    email.classList.remove('invalid', 'neutral', 'border-error')
+    errorEmail.classList.add('form__success')
+    errorEmail.classList.remove('form__error')
+    email.classList.add('form__border-success')
+    email.classList.remove('invalid', 'neutral', 'form__border-error')
   } else {
-    email.classList.remove('valid', 'border-success', 'neutral')
-    email.classList.add('invalid', 'border-error')
+    email.classList.remove('valid', 'form__border-success', 'neutral')
+    email.classList.add('invalid', 'form__border-error')
     errorEmail.innerHTML = "Please Enter Valid Email Address"
-    errorEmail.classList.add('error')
-    errorEmail.classList.remove('success')
+    errorEmail.classList.add('form__error')
+    errorEmail.classList.remove('form__success')
   }
 
   if (emailValue === "") {
@@ -46,21 +46,21 @@ password.addEventListener('change', () => {
   const patternPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/
 
   if (passwordValue.match(patternPassword)) {
-    password.classList.add('valid', 'border-success')
-    password.classList.remove('invalid', 'border-error', 'neutral')
+    password.classList.add('valid', 'form__border-success')
+    password.classList.remove('invalid', 'form__border-error', 'neutral')
     errorPassword.innerHTML = "Your Password address is Valid!"
-    errorPassword.classList.add('success')
-    errorPassword.classList.remove('error')
+    errorPassword.classList.add('form__success')
+    errorPassword.classList.remove('form__error')
   } else {
-    password.classList.remove('valid', 'border-success', 'neutral')
-    password.classList.add('invalid', 'border-error')
+    password.classList.remove('valid', 'form__border-success', 'neutral')
+    password.classList.add('invalid', 'form__border-error')
     errorPassword.innerHTML = "Please Enter Alphanumeric Password and at least One UPPERCASE Letter"
-    errorPassword.classList.add('error')
-    errorPassword.classList.remove('success')
+    errorPassword.classList.add('form__error')
+    errorPassword.classList.remove('form__success')
   }
 
   if (passwordValue === "") {
-    password.classList.remove('valid', 'invalid', 'border-error', 'border-success')
+    password.classList.remove('valid', 'invalid', 'form__border-error', 'form__border-success')
     password.classList.add('neutral')
     errorPassword.innerHTML = ""
   }

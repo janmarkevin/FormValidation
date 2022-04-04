@@ -1,0 +1,43 @@
+.close {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  font-size: 40px;
+  line-height: 0.4;
+  
+  &:hover,
+  &:focus {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+.blue{
+  background: rgba(74, 74, 255, 0.913)!important;
+  color: #fff!important;
+
+  &:hover {
+    box-shadow: 0 0 10px #000;
+  }
+}
+
+.no-cursor {
+  cursor: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.neutral {
+  border: none;
+  border-bottom: 2px solid #000;
+}

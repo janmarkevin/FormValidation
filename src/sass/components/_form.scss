@@ -6,9 +6,35 @@
   padding: 20px;
   box-shadow: 0 0 5px #000;
 
+  &__male,
+  &__female,
+  &__terms {
+    cursor: pointer;
+  }
+
+  &__success {
+    color: #00ff00;
+  }
+
+  &__error {
+    color: #ff0000;
+  }
+
+  &__border-success {
+    border: none;
+    border-bottom: 2px solid #00ff00;
+  }
+  
+  &__border-error {
+    border: none;
+    border-bottom: 2px solid #ff0000;
+  }
+
+  //
+
   &__control {
-    width: 50%;
-    margin: 10px auto;
+    width: 60%;
+    margin: 20px auto;
   }
 
   &__control-group {
@@ -17,20 +43,37 @@
     align-items: center;
   }
 
-  input[type=email],
-  input[type=password] {
-    padding: 5px 20px 5px 5px;
+  &__right {
+    width: 196px;
+    display: flex;
+  }
+
+  &__gender {
+    margin-right: 10px;
+
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+
+  &__input[type=email],
+  &__input[type=password] {
+    padding: 5px 10px 5px 3px;
     position: relative;
     z-index: 1;
+    outline: none;
   }
 
-  button {
+  &__btn {
     display: block;
     margin: 0 auto;
+    background: transparent;
+    border: none;
+    padding: 5px 10px;
+    box-shadow: 0 0 5px #000;
   }
 
-  #text,
-  #textPassword {
+  &__text-error {
     display: block;
     font-size: 11px;
     width: 196px;
